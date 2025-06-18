@@ -9,7 +9,7 @@ const db = mysql.createConnection({
   port: process.env.DB_PORT || 3306,
   ssl: {
     // Needed on Railway for secure connections
-    rejectUnauthorized: true,
+    rejectUnauthorized: false,
   },
 });
 
