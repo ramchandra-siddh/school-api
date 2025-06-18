@@ -3,9 +3,13 @@ const express = require("express");
 const db = require("./databaseUtil");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("API working");
+});
 
 //POST  /addSchool
 
