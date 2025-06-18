@@ -1,0 +1,19 @@
+# Node modules (local dependencies)
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Optional: OS or IDE-specific files
+.DS_Store              # macOS
+Thumbs.db              # Windows
+.vscode/               # VS Code settings
+
+# Optional: Production build or generated files (if any)
+dist/
+build/
