@@ -3,22 +3,9 @@ const express = require("express");
 const db = require("./databaseUtil");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
-
-db.connect((err) => {
-  if (err) {
-    console.error("Database connection failed:", err);
-    process.exit(1); // <-- exits the app, causes Railway to stop container
-  } else {
-    console.log("Connected to MySQL DB");
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
-    });
-  }
-});
 
 //POST  /addSchool
 
@@ -94,4 +81,8 @@ app.get("/listSchools", (req, res) => {
       .sort((a, b) => a.distance - b.distance);
     res.json(sortedSchools);
   });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });

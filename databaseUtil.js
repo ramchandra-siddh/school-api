@@ -7,18 +7,11 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   port: process.env.DB_PORT || 3306,
-  ssl: {
-    // Needed on Railway for secure connections
-    rejectUnauthorized: false,
-  },
 });
 
 db.connect((err) => {
-  if (err) {
-    console.error("Database connection failed:", err.stack);
-    return;
-  }
-  console.log("Connected to MySQL database.");
+  if (err) throw err;
+  console.log("Connected to MySQL DB");
 });
 
 module.exports = db;
