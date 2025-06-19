@@ -6,6 +6,10 @@ const app = express();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.status(200).send("API is running");
+});
+
 //POST  /addSchool
 
 app.post("/addSchool", (req, res) => {
